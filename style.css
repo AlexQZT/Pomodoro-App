@@ -1,0 +1,121 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #20283a;
+  background: #f3f5fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.timer-app {
+  width: min(100%, 28rem);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+}
+
+.timer-card {
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 1rem 2.5rem rgb(32 40 58 / 10%);
+}
+
+.timer-status p {
+  margin: 0.25rem;
+}
+
+#phase-label {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+#status-label {
+  color: #626d80;
+}
+
+.progress-ring {
+  --progress: 0%;
+
+  width: min(16rem, 70vw);
+  aspect-ratio: 1;
+  margin: 1.75rem auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(#5969e8 var(--progress), #e5e8f1 var(--progress));
+  position: relative;
+}
+
+.progress-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0.7rem;
+  border-radius: inherit;
+  background: #fff;
+}
+
+.time-display {
+  z-index: 1;
+  font-size: clamp(2.5rem, 12vw, 3.5rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.session-count {
+  color: #626d80;
+}
+
+.timer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+button {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 0.6rem;
+  background: #5969e8;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #4353cf;
+}
+
+button:focus-visible {
+  outline: 3px solid #20283a;
+  outline-offset: 3px;
+}
+
+button:disabled {
+  background: #c7ccda;
+  color: #525a69;
+  cursor: not-allowed;
+}
+
+@media (max-width: 24rem) {
+  .timer-card {
+    padding: 1.25rem 1rem;
+  }
+}
